@@ -107,7 +107,7 @@
 							</li>
 							<li role="presentation" class="divider"></li>
 							<li component="user/logout">
-								<a href="#"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
+								<a href="https://api.nobreaksguild.com/logout"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
 							</li>
 						</ul>
 					</li>
@@ -124,7 +124,8 @@
 					</li>
 					<!-- ENDIF allowRegistration -->
 					<li>
-						<a href="{relative_path}/login">
+						<!--<a href="{relative_path}/login">-->
+						<a href="https://api.nobreaksguild.com/auth/bnet">
 							<i class="fa fa-sign-in visible-xs-inline"></i>
 							<span>[[global:login]]</span>
 						</a>
