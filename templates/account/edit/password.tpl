@@ -33,8 +33,8 @@
 			</div>
 		</div>
 		<br/>
-		<div class="form-actions">
+		<!--<div class="form-actions">
 			<a id="changePasswordBtn" href="#" class="btn btn-primary btn-block"><i class="hide fa fa-spinner fa-spin"></i> [[user:change_password]]</a>
-		</div>
+		</div>-->
 	</form>
 </div>
