@@ -115,14 +115,6 @@
 				</ul>
 				<!-- ELSE -->
 				<ul id="logged-out-menu" class="nav navbar-nav navbar-right">
-					<!-- IF allowRegistration -->
-					<li>
-						<a href="{relative_path}/register">
-							<i class="fa fa-pencil visible-xs-inline"></i>
-							<span>[[global:register]]</span>
-						</a>
-					</li>
-					<!-- ENDIF allowRegistration -->
 					<li>
 						<!--<a href="{relative_path}/login">-->
 						<a href="https://api.nobreaksguild.com/auth/bnet">
