@@ -9,9 +9,11 @@
 				<!-- BEGIN sessions -->
 				<li class="list-group-item" data-uuid="{../uuid}">
 					<div class="pull-right">
+						<!-- IF isSelfOrAdminOrGlobalModerator -->
 						<!-- IF !../current -->
 						<button class="btn btn-xs btn-default" type="button" data-action="revokeSession">Revoke Session</button>
 						<!-- ENDIF !../current -->
+						<!-- ENDIF isSelfOrAdminOrGlobalModerator -->
 						{function.userAgentIcons}
 						<i class="fa fa-circle text-<!-- IF ../current -->success<!-- ELSE -->muted<!-- ENDIF ../current -->"></i>
 					</div>
@@ -38,6 +40,38 @@
 						<!-- BEGIN ips -->
 						<li>@value</li>
 						<!-- END ips -->
+					</ul>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">[[user:info.username-history]]</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<!-- BEGIN usernames -->
+						<li class="list-group-item">
+							{../value}
+							<small class="pull-right"><span class="timeago" title="{../timestampISO}"></span></small>
+						</li>
+						<!-- END usernames -->
+					</ul>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">[[user:info.email-history]]</h3>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<!-- BEGIN emails -->
+						<li class="list-group-item">
+							{../value}
+							<small class="pull-right"><span class="timeago" title="{../timestampISO}"></span></small>
+						</li>
+						<!-- END emails -->
 					</ul>
 				</div>
 			</div>
@@ -90,10 +124,11 @@
 							<p>
 								<span class="timestamp timeago" title="{../timestampISO}"></span> &mdash; {../timestampReadable}<br />
 								<!-- IF ../until -->
-								<span class="expiry">[[user:info.banned-until, {../untilReadable}]]</span>
+								<span class="expiry">[[user:info.banned-until, {../untilReadable}]]</span><br />
 								<!-- ELSE -->
-								<span class="expiry">[[user:info.banned-permanently]]</span>
+								<span class="expiry">[[user:info.banned-permanently]]</span><br />
 								<!-- ENDIF ../until -->
+								<span class="reason"><strong>[[user:info.banned-reason-label]]</strong>: {../reason}</span>
 							</p>
 						</li>
 						<!-- END history.bans -->
@@ -103,6 +138,18 @@
 					<!-- ENDIF history.bans.length -->
 				</div>
 			</div>
+			<!-- IF isAdminOrGlobalModerator -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">[[user:info.moderation-note]]</h3>
+				</div>
+				<div class="panel-body">
+					<textarea component="account/moderation-note" class="form-control">{moderationNote}</textarea>
+					<br/>
+					<button class="btn btn-sm pull-right btn-success" component="account/save-moderation-note">[[global:save]]</button>
+				</div>
+			</div>
+			<!-- ENDIF isAdminOrGlobalModerator -->
 		</div>
 	</div>
 </div>

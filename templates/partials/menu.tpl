@@ -49,14 +49,14 @@
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="chat_dropdown">
 							<li>
-								<ul component="chat/list" class="chat-list">
+								<ul component="chat/list" class="chat-list chats-list">
 									<li>
 										<i class="fa fa-refresh fa-spin"></i> [[global:chats.loading]]
 									</li>
 								</ul>
 							</li>
 							<li class="notif-dropdown-link"><a href="#" class="mark-all-read" component="chats/mark-all-read">[[modules:chat.mark_all_read]]</a></li>
-							<li class="notif-dropdown-link"><a href="{relative_path}/chats">[[modules:chat.see_all]]</a></li>
+							<li class="notif-dropdown-link"><a href="{relative_path}/user/{user.userslug}/chats">[[modules:chat.see_all]]</a></li>
 						</ul>
 					</li>
 					<!-- ENDIF !config.disableChat -->
@@ -105,6 +105,22 @@
 									<i class="fa fa-fw fa-gear"></i> <span>[[user:settings]]</span>
 								</a>
 							</li>
+							<!-- IF showModMenu -->
+							<li role="presentation" class="divider"></li>
+							<li class="dropdown-header">Moderator Tools</li>
+							<li>
+								<a href="{relative_path}/posts/flags">
+									<i class="fa fa-fw fa-flag"></i> <span>[[pages:flagged-posts]]</span>
+								</a>
+							</li>
+							<!-- IF isAdmin -->
+							<li>
+								<a href="{relative_path}/ip-blacklist">
+									<i class="fa fa-fw fa-ban"></i> <span>[[pages:ip-blacklist]]</span>
+								</a>
+							</li>
+							<!-- ENDIF isAdmin -->
+							<!-- ENDIF showModMenu -->
 							<li role="presentation" class="divider"></li>
 							<li component="user/logout">
 								<a href="https://api.nobreaksguild.com/logout"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
@@ -164,15 +180,15 @@
 
 				<ul class="nav navbar-nav navbar-right pagination-block visible-lg visible-md">
 					<li class="dropdown">
-						<i class="fa fa-angle-double-up pointer fa-fw pagetop"></i>
-						<i class="fa fa-angle-up pointer fa-fw pageup"></i>
+						<a><i class="fa fa-angle-double-up pointer fa-fw pagetop"></i></a>
+						<a><i class="fa fa-angle-up pointer fa-fw pageup"></i></a>
 
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<span class="pagination-text"></span>
 						</a>
 
-						<i class="fa fa-angle-down pointer fa-fw pagedown"></i>
-						<i class="fa fa-angle-double-down pointer fa-fw pagebottom"></i>
+						<a><i class="fa fa-angle-down pointer fa-fw pagedown"></i></a>
+						<a><i class="fa fa-angle-double-down pointer fa-fw pagebottom"></i></a>
 
 						<div class="progress-container">
 							<div class="progress-bar"></div>

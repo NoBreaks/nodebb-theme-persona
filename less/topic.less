@@ -1,4 +1,8 @@
 .topic {
+	[component="post/header"] {
+		margin-top: 0px;
+	}
+
 	h1 {
 		line-height: 40px;
 		margin-bottom: 30px;
@@ -138,6 +142,15 @@
 		font-size: 10px;
 	}
 
+	[component="post/reply-count"] {
+		margin-left: 61px;
+	}
+
+	[component="post/replies"] {
+		margin-left: 61px;
+		margin-top: 20px;
+	}
+
 	.stats {
 		margin: 0px 10px 0px 10px;
 		float: left;
@@ -207,6 +220,7 @@
 
 	.tags {
 		vertical-align: -40%;
+		margin-bottom: 20px;
 	}
 
 	h1 {
@@ -254,6 +268,55 @@
 				.user-icon-style(23px, 1.3rem, 50%);
 			}
 		}
+
+		[component="post/reply-count"] {
+			margin-left: 0;
+		}
+	}
+	
+	.quick-reply {
+		.icon {
+			position: relative;
+			border-radius: 50%;
+			min-width: 46px;
+			min-height: 46px;
+			margin-top: 2px;
+
+			> a > .status {
+				position: absolute;
+				right: 12px;
+				font-size: 12px;
+				top: 0px;
+
+				@media (min-width: @screen-md-min) {
+					top: 2px;
+					font-size: 16px;
+				}
+			}
+
+			img, .user-icon {
+				margin-right: 15px;
+				.user-icon-style(46px, 2.4rem, 50%);
+			}
+		}
+		
+		.quickreply-message {
+			margin-left: 61px;
+			margin-bottom: 5px;
+			
+			@media (max-width: @screen-sm-max) {
+				margin-left: 0;
+				
+				[component="topic/quickreply/text"] {
+					font-size: 16px;
+					padding: 10px;
+				}
+			}
+		}
+		
+		[component="topic/quickreply/button"] {
+			margin-bottom: 10px;
+		}
 	}
 }
 
@@ -271,7 +334,7 @@
 		list-style-type: none;
 		padding: 0;
 
-		> li {
+		[component="post"] {
 			position: relative;
 
 			.edit-icon {
@@ -279,7 +342,7 @@
 			}
 
 			&.deleted {
-				.content {
+				> .content {
 					.opacity(0.3);
 				}
 
@@ -437,18 +500,18 @@
 }
 
 [component="post"] {
-	
+
 	[component="user/picture"], [component="user/status"] {
 		opacity: 1;
 	}
-	
+
 	.icon:before {
 		opacity: 0;
 	}
-	
+
 	&.bg-success {
 		background-color: initial;
-		
+
 		.icon:before {
 			border: 1px solid #5cb85c;
     		color: #5cb85c;
@@ -462,7 +525,7 @@
 		    display: inline-block;
 		    font: normal normal normal 14px/1 FontAwesome;
 		}
-		
+
 		[component="user/picture"], [component="user/status"] {
 			opacity: 0;
 		}
